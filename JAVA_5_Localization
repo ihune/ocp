@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="it">
+	    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+	<head><title>DateStringsLocalization</title></head>
+<body>
+	  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+<h1>Date, Strings and Localization</h1>
+<h2>Using a resource Bundle</h2>
+A resource bundle contains the local specific objects to be used bya program. It's like a map with keys and values stored in a Java class or in a property file.
+Tipically we kept all the string utilized in the class that use them, but Localization requires externalizing them to elsewhere, typically in a property file on in resource bundle class.
+	<ul>
+      	<li>Property file format: key/value pairs in format</li>
+		<li>key=value, key:value, key value</li>
+	</ul>
+
+In addition to ResourceBundle, Java supports a class named Properties, a old style Map. Poperties ha un metodo getProperty che permette l'indicazione del default tramite parametro.
+
+Java class resource bundles can have non-String values while property files are limited to string. Therefore:
+- all the resource bundle defined as property files can be expressed using the Java class list bundle format insted.
+But is not true:
+- all the resource bundles defined as java classes can be expressed using property file format 
+
+	<h1>Test</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-5">
+<img src="file:\\\C:\\HOME_MIC\\knowledge@github.com\\repository\\ocp_test_reports\\cap5-q1.jpg" alt="" width="320" height="600">
+    </div>
+    <div class="col-sm-6">
+        <div class="row">A try-with-resource use parentheses tahter then brackets for the try section.
+	   </div>
+    </div>
+</div>
+  <div class="row py-3">
+    <div class="col-sm-5">
+<img src="file:\\\C:\\HOME_MIC\\knowledge@github.com\\repository\\ocp_test_reports\\cap5-q2.jpg" alt="" width="320" height="600">
+    </div>
+    <div class="col-sm-6">
+        <div class="row">Oracle defines a locale as a geographical region. time zone often span multiple locales
+       </div>
+    </div>
+</div>
+
+  <div class="row my-3">
+      <div class="col-sm-5">
+      <img src="file:\\\C:\\HOME_MIC\\knowledge@github.com\\repository\\ocp_test_reports\\cap5-q3.jpg" alt="" width="320" height="600">
+      </div>
+      <div class="col-sm-6">
+          <p>Suppose we have a ZonedDateTime:</p>
+          <p>  Set&ltString> zones = ZoneId.getAvailableZoneIds(); </br>
+    Optional&ltString> zoneNY =  zones.stream()
+         .filter(o->o.contains("America/New_York")).findAny(); )</p>
+    <p> ZoneId zoneN= ZoneId.of(zoneNY.get());</p>
+    <p> LocalDate dat = LocalDate.of(2017,11, 05);</p>
+    <p>LocalTime tim = LocalTime.of(1, 00);</p>
+    <p>dateTimehere = ZonedDateTime.of(dat, tim, zoneN);</p>
+
+    <p>that outputs:  2017-11-05T01:00-04:00[America/New_York]</p>
+     <p>than we add 1 hour </p>
+    <p>we have: 2017-11-05T01:00-05:00[America/New_York]</p>
+    <p>Instead normally, </br>starting from the midnight: 2017-11-05T00:00-04:00[America/New_York]</p>
+    <p>adding we have: 2017-11-05T01:00-04:00[America/New_York]</p>
+    </div>
+  </div>
+  <div class="row my-3">
+      <div class="col-sm-5">
+      <img src="file:\\\C:\\HOME_MIC\\knowledge@github.com\\repository\\ocp_test_reports\\cap5-q4.jpg" alt="" width="320" height="600">
+      </div>
+      <div class="col-sm-6">
+          <p>The Properties class defines a get() method that does not allow for a default value. It also has a getProperty() method, which returns the default value if the key is not provided</p>
+      </div>
+  </div>    
+</div>
+</body>

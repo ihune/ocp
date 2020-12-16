@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="it">
+	    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+	<head><title>Functional Programming</title></head>
+<body>
+	  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<a href="https://docs.oracle.com/javase/8/docs/api/java/util/stream/package-summary.html"><h1>java.util.stream</h1></a>
+
+Intermediate Operations:
+    1. Filter:
+    DoubleStream java.util.stream.DoubleStream.filter(DoublePredicate predicate)
+
+Termianl Operations:
+ If there is a terminal operation, the stream runs with its starting and intermediate opererations.
+    count()
+
+
+Working with Advances Stream pipeline Concepts:
+
+        String in="Questa e' una frase";
+        char[] arr = in.toCharArray() ;
+        Predicate<Character> vow= c -> "aeiou".contains( String.valueOf(c) ) ;
+        Stream<Character> cStream = IntStream.range(0, arr.length).mapToObj(i -> arr[i]);
+        Stream<Character> vStream = cStream.filter(vow) ;
+        Map<Character, Integer> aa=vStream.collect(Collectors.toMap(c->c, w -> 1, Integer::sum ));
+        System.out.print(aa);
+
+
+<h2>Collectors.groupingBy</h2>
+&lt;String, Boolean> Collector<String, ?, Map&lt;Boolean, List&lt;String>>> java.util.stream.Collectors
+.groupingBy(Function&lt;? super String, ? extends Boolean> classifier)
+
+Returns a Collector implementing a "group by" operation oninput elements of type T, grouping elements according to aclassification function, and returning the results in a Map. 
+
+The classification function maps elements to some key type K.The collector produces a Map&lt;K, List&lt;T>> whose keys are thevalues resulting from applying the classification function to the inputelements, and whose corresponding values are Lists containing theinput elements which map to the associated key under the classificationfunction. 
+
+e.g. 
+Stream&lt;String> s1 = Stream.empty();
+Map&lt;Boolean,List&lt;String>> g = s1.collect(Collectors.groupingBy(b-> b.startsWith("c")));
+{}
+
+<h2>Collectors.partitioningBy</h2>
+
+	<p> &lt;String> Collector&lt;String, ?, Map&lt;Boolean, List&lt;String>>> java.util.stream.Collectors
+.partitioningBy(Predicate&lt;? super String> predicate)&lt;</p>
+
+Returns a Collector which partitions the input elements accordingto a Predicate, and organizes them into a Map&lt;Boolean, List&lt;T>>.There are no guarantees on the type, mutability,serializability, or thread-safety of the Map returned.
+Type Parameters:&lt;T> the type of the input elementsParameters:predicate a predicate used for classifying input elementsReturns:a Collector implementing the partitioning operation
+
+e.g.
+Stream&lt;String> s1 = Stream.empty();
+Map&lt;Boolean,List&lt;String>> p = s1.collect(Collectors.partitioningBy(b-> b.startsWith("c")));
+{false=[], true=[]}	
+
+<h1>Test</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+<img src="file:\\\C:\\HOME_MIC\\knowledge@github.com\\repository\\ocp_test_reports\\cap4-q1.jpg" alt="" width="320" height="600">
+    </div>
+    
+    <div class="col-sm-6 offset-2">
+    	Take a predicate and return an Optional --- None 
+    	<p>Optional&lt;T>	findAny()</p>
+    	<p>Stream&lt;T>	filter(Predicate&lt;? super T> predicate)</p>
+    	<p>boolean	allMatch(Predicate&lt;? super T> predicate)</p>
+    </div>
+</div>
+  <div class="row my-3">
+    <div class="col-sm-4">
+<img src="file:\\\C:\\HOME_MIC\\knowledge@github.com\\repository\\ocp_test_reports\\cap4-q2.jpg" alt="" width="320" height="600">
+    </div>
+    
+    <div class="col-sm-6 offset-2">
+        DoubleSupplier and Supplier&ltDouble> are both FI of java.util.function package. The former use a Double and the latter use the primitive double.
+    </div>
+</div>
+  <div class="row my-3">
+    <div class="col-sm-4">
+<img src="file:\\\C:\\HOME_MIC\\knowledge@github.com\\repository\\ocp_test_reports\\cap4-q3.jpg" alt="" width="320" height="600">
+    </div>
+    
+    <div class="col-sm-6 offset-2">
+       <ul>
+           <li> Supplier&ltString> for the constructor, for sure because uses a constructor reference</li>
+           <li> BiConsumer&ltString, String>, takes two parameters and not retruns anything, so BiConsumer </li>
+           <li> UnaryOperator&ltString>Takes a parameter and return the same, so it is an operator...</li> 
+       </ul>
+    </div>
+</div>
+</div>
+</body>

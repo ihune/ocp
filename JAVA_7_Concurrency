@@ -1,0 +1,181 @@
+
+<!DOCTYPE html>
+<html lang="it">
+	    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+	<head><title>Concurrent Processes</title></head>
+<body>
+	  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+<h1>Concurrent Processes</h1>
+<p><bold>what is a thread?</bold> is the smallest UoE that can be scheduled by an OS</p>
+<p><bold>what is a process?</bold> a group of associated thread that can execute in the same, shared environment</p>
+
+<h2>Managing Concurrent Processes Coordinate tasks among group of related thread</h2>
+	
+	Esempio dello zoo con 4 lavoratori e di una gabbia dei leoni che deve essere svuotata, pulita e riempita di nuovo.
+	Il lavoro può essere fatto da un solo lavoratore ma questo rallenta e non fa lavorare gli altri.
+	Soluzione migliore è che i lavoratori lavorino in contemporanea, pausing between la fine di un set di task e lo start del successivo. Per attuare questo coordinamento si utilizza il CyclicBarrier.
+</p>
+With the release of the Concurrency API, Java added a new 
+		java.util.concurrent.atomic 
+package to help coordinate access to primitive values and object references.
+
+The increment operator ++ is not thread-safe. Furthermore, the reason that it is not thread-safe is that the opeation is not atomic, carrying out two task, read and write, that can be interrupted by other threads.
+
+Definition:
+Atmic is the property of an operation to be carried out as a single unit of execution without any interference by another thread.
+
+A thread-safe atomic version of the increment operator would be the one that performed 
+		the read and write of the variable as a single operation, 
+not allowing any other thread to access the variable during the operation.
+
+Atomic classes ensures that the data is consistent between workers and that no values are lost due to concurrent modifications.
+Non mieve rispettato l'ordinamento.
+
+Classi: AtomicBoolean, AtomicInteger, AtomicIntegerArray, AtomicLong, AtomicLongArray, AtmocReference, AtmocReferenceArray.
+Common atomic methods:
+	get(), set(), getAndSet(), incrementAndGet(), getAndIncrement(), decrementAndGet(), getAndDecremnt()
+
+	<h3>Improving Access with Synchronized Block</h3>
+
+The most common technique is to use a 
+					monitor, also called a lock, 
+to synchronize access. A monitor is a structure that supports mututal exclusion or the property that at most one thread is executing a particular segment of code at a given time.
+In Java, any Object can be used as a monitor, along with the synchronized keyword:
+
+	Object obj = new Object();
+	synchronized (obj) {  --  syncronized block - Only one thread at a time -- 	}
+
+Each thread that arives will first check the monitor. If the lock is available, a single thread will enter the bloc, acquiring the lock, all thread that arrive will attempt to acquire thre same lock and wait for first thread to finish. One a thread finishes executing the block, it will release the lock allowing one of the waiting thread to proceed.
+
+	<h3>Final for the lock</h3>
+
+private final Object lock = new Object();
+
+Although we didn't need to make the lock variable final, doing so ensures that is not reassigned after threads start using it.
+	
+	public void incrementAndReport() {
+		// synchronized block
+		synchronized (lock) { 		}	
+	}
+
+	<h3>Synchronized Methods </h3>
+
+It's possibile to establish our monitor using synchronize(this) around the body of the method.
+We can add the synchronized modifier to any instance method to synchronize automatically on the object itself:
+	public void incrementAndReport() {
+		// synchronized block
+		synchronized (this) { 		}	
+	}
+Si Sta sicronizzando sull'oggetto cui il metodo appartiene. We can also use the synchronized method modifier:
+	public synchronized void incrementAndReport() {}
+
+	<h3>Synchronized Static Methods </h3>
+
+What object is used as the monitor when we synchronize on a static method? The class object. this stands for classname.class.
+
+	<h3>Singleton with Synchronized Block</h3>
+
+To prevent that more than one instance from being created, we use a static synchronized getInstance() method.
+
+ 	public static synchronized TicketManager getInstance() {// k1
+		if (instance == null ) instance = new TicketManager();
+		return instance;
+	}
+
+	<h3>Fork/Join</h3>
+
+Se join è chiamato immediatamente dopo il fork, causando l'attesa del processo, non ci saranno miglioramenti di prestazioni in termini di parallelizzazione.
+
+	<h1>Test</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-5">
+		<img src="file:\\\C:\\HOME_MIC\\knowledge@github.com\\repository\\ocp_test_reports\\cap7-q1.jpg" alt="" width="320" height="600">
+    </div>
+    <div class="col-sm-6">
+    	  <div class="row">
+      The best way to define an asynchronous task?
+      	<ul>
+      		<li>Create a Callable and pass it to an instance of <bold>ExecutorService</bold>, not to an instance of Executors</li>
+			<li>Create a Runnable expression and pass to a Thread constructor, the most common way</li>
+			<li>Create a class that extends Thread and overrides the run() method, not the start() one</li>
+		</ul>    	
+	</div>
+		  <div class="row">
+		  	<h3>Submitting a task</h3>
+		  	<p>You can submit a task to an ExecutorService instance via multiple ways:</p>
+		  	<ul>
+      			<li>void execute(Runnable)</li>
+      			<li>Future &lt;?> submit(Runnable)</li>
+      			<li>Future &lt;?> submit(Callable)</li>
+      		</ul>
+
+		  </div>
+		  <div class="row">
+		  	<div class="col-sm-12"><h3 style="display:block;">Future</h3></div>
+		  	<p>Submitting a task ..</p>
+		  	<p class="h6 small" >Future &lt;?> future = service.submit(() -> System.out.println("Hello"));</p>
+		  	<p>How do we know when a submitted task is complete?</p>
+		  	<ul>
+      			<li>boolean isDone()</li>
+      			<li>boolean isCancelled()</li>
+      			<li>boolean cancel()</li>
+				<li>V get()</li>
+				<li>V get(long timeout, TimeUnit u)</li>
+      		</ul>
+
+		  </div>		  
+    </div>
+  </div>
+   <div class="row">
+    <div class="col-sm-5">
+		<img src="file:\\\C:\\HOME_MIC\\knowledge@github.com\\repository\\ocp_test_reports\\cap7-q2.jpg" alt="" width="320" height="600">
+    </div>
+    <div class="col-sm-6">
+    	<div class="row">
+    		<p>The question is which static method in <b>ExecutorService</b> should use to create tasks for a CB. But a ExecutorService does not contain any of these methods. In order to obtain an instance of a thread executor you need to use the <b>Executors</b> factory class.</p>
+    		<p><b>ExecutorService</b>is an interface that go together with the factory class <b>Executors</b>, that has the methods:
+    		<ul>
+    			<ul>
+    				<li>newSingleThreadExecutor</li>
+    				<li>newSingleThreadScheduledExecutor</li>
+    			</ul>
+    			<ul>
+					<li>newFixedThreadPoolExecutor</li>
+					<li>newCachedThreadPoolExecutor</li>
+					<li>newScheduledThreadPoolExecutor</li>
+				</ul>
+    		</ul>
+    		</p> 
+    	</div>
+    </div>
+</div>
+	<div class="row my-3">
+	    <div class="col-sm-5">
+			<img src="file:\\\C:\\HOME_MIC\\knowledge@github.com\\repository\\ocp_test_reports\\cap7-q3.jpg" alt="" width="320" height="600">
+	    </div>
+	    <div class="col-sm-6">
+	    		<p>Qui non si richiede che il codice crei un thread eseguibile. Qui si richiede solo che il codice compili.</p>
+	    		<b>An anonymous inner class can either extends a class or implement an interface.</b> Runnable is an interface with one method. 
+	    		<p>Thread is a concrete class, making implementing the run() method optional.</p>
+	    </div>
+	</div>
+	<div class="row my-3">
+	    <div class="col-sm-5">
+			<img src="file:\\\C:\\HOME_MIC\\knowledge@github.com\\repository\\ocp_test_reports\\cap7-q4.jpg" alt="" width="320" height="600">
+	    </div>
+	    <div class="col-sm-6">
+	    		<p>Attenzione alla base condition, in quanto se non raggiunta mai si genera un loop infinito che porta il codice ad andare in un loop infinito</p>
+	    </div>
+	</div>	
+</div>
+</body>
+

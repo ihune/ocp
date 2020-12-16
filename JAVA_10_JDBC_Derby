@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="it">
+	    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+	<head><title>Advanced Class Design</title></head>
+<body>
+	  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<h1>JDBC</h1>
+<h2>Scrollign the ResultSet</h2>
+A scrollable ResultSet allows you to position the cursor at any row.
+Methods next() and previous() move forward and backward of one row, return true if pointing to a valid row of data.
+There are also methods to start at the beginning and end of the ResultSet (first and last return boolean, beforeFirst and afterLast return void).
+The ResultSet types are 
+<ul><li>TYPE_FORWARD_ONLY</li><li>TYPE_SCROLL_INSENSITIVE</li><li>TYPE_SCROLL_SENSITIVE</li></ul>
+The last two allow the ResultSet to be scrollable. TYPE_SCROLL_INSENSITIVE means that you can go through tha data in order but don't see changes made in the database while you are scrolling. By default, a Statement is not scarollable.
+<h1>Test</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+<img src="file:\\\C:\\HOME_MIC\\knowledge@github.com\\repository\\ocp_test_reports\\cap10-q1.jpg" alt="" width="320" height="600">
+    </div>
+    
+    <div class="col-sm-6 offset-2">
+    	The first call to previous() throws a SQLException because the ResultSet type is TYPE_FORWARD_ONLY.
+    </div>
+</div>
+</div>
+</body>

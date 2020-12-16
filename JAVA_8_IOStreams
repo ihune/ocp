@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="it">
+	    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+	<head><title>IO</title></head>
+<body>
+	  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<div class="container">    
+<a href="https://docs.oracle.com/javase/7/docs/api/java/io/package-summary.html"><h1>java.io</h1></a>
+<h2>Java IO Fundamentals </h2>
+
+<p>Reading and writing data from the console</p>
+	Java API enables you to access standard input and ouput streams of the underlying platform via static fields of the java.lang.System class. All of those stream are directed to the console (in, out, err ...static field in system).
+	Methods: println, print, printf, format 
+	The console class represents the unique character-based console device, associated with the JVM (it depends on how it is launched).
+	System.console(), returns console or null
+	console.readLine()
+
+	Standard stream are byte-streams - 		Console stream is character-based
+	Standard stream are always existent - 	Console stream might be or not
+	Standard stream belongs to the underlying platform
+							- 	Unique Console object is associated with the JVM
+
+<p>File and IOStreams</p>
+	A file is a record within the filesytem that stores user and system data.
+	<h1>Test</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+<img src="file:\\\C:\\HOME_MIC\\knowledge@github.com\\repository\\ocp_test_reports\\cap8-q1.jpg" alt="" width="320" height="600">
+    </div>
+    
+    <div class="col-sm-6 offset-2">
+		You have an InputStream, but not all java.io.streams support the mark operation. If mark supperted the result would be XYZY. <b>If the stream does not support it a runtime exception is likely thrown.</b>
+    </div>
+</div>
+
+  <div class="row my-3">
+    <div class="col-sm-4">
+<img src="file:\\\C:\\HOME_MIC\\knowledge@github.com\\repository\\ocp_test_reports\\cap8-q2.jpg" alt="" width="320" height="600">
+    </div>
+    
+    <div class="col-sm-6 offset-2">
+    	<p>renameTo ok, getLength, no, listFile no, createdirecorty no</p>
+    	<p>Attenzione: listFiles c'è ma non listFile</p>
+    </div>
+</div>
+
+</div>
+</body>
