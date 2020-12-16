@@ -25,7 +25,7 @@
     </div>
     <div class="row my-3">
         <div class="col-sm-5">
-            <img src="file:\\\C:\\HOME_MIC\\knowledge@github.com\\repository\\ocp_test_reports\\cap1-q2.jpg" alt="" width="320" height="600">
+            <img src="./ocp_test_reports/cap1-q2.jpg" alt="" width="320" height="600">
         </div>
         <div class="col-sm-6">
             <p>Since the problem description talks about keys (identifier) and values (animals), a Map is the answer. HashMap is the best choice withr espect the TreeSet as the sort order was not mentioned.</p>
