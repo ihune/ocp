@@ -98,7 +98,7 @@ Se join è chiamato immediatamente dopo il fork, causando l'attesa del processo,
 <div class="container">
   <div class="row">
     <div class="col-sm-5">
-		<img src="file:\\\C:\\HOME_MIC\\knowledge@github.com\\repository\\ocp_test_reports\\cap7-q1.jpg" alt="" width="320" height="600">
+		<img src="./ocp_test_reports/cap7-q1.jpg" alt="" width="320" height="600">
     </div>
     <div class="col-sm-6">
     	  <div class="row">
@@ -137,7 +137,7 @@ Se join è chiamato immediatamente dopo il fork, causando l'attesa del processo,
   </div>
    <div class="row">
     <div class="col-sm-5">
-		<img src="file:\\\C:\\HOME_MIC\\knowledge@github.com\\repository\\ocp_test_reports\\cap7-q2.jpg" alt="" width="320" height="600">
+		<img src="./ocp_test_reports/cap7-q2.jpg" alt="" width="320" height="600">
     </div>
     <div class="col-sm-6">
     	<div class="row">
@@ -160,7 +160,7 @@ Se join è chiamato immediatamente dopo il fork, causando l'attesa del processo,
 </div>
 	<div class="row my-3">
 	    <div class="col-sm-5">
-			<img src="file:\\\C:\\HOME_MIC\\knowledge@github.com\\repository\\ocp_test_reports\\cap7-q3.jpg" alt="" width="320" height="600">
+			<img src="./ocp_test_reports/cap7-q3.jpg" alt="" width="320" height="600">
 	    </div>
 	    <div class="col-sm-6">
 	    		<p>Qui non si richiede che il codice crei un thread eseguibile. Qui si richiede solo che il codice compili.</p>
@@ -170,7 +170,7 @@ Se join è chiamato immediatamente dopo il fork, causando l'attesa del processo,
 	</div>
 	<div class="row my-3">
 	    <div class="col-sm-5">
-			<img src="file:\\\C:\\HOME_MIC\\knowledge@github.com\\repository\\ocp_test_reports\\cap7-q4.jpg" alt="" width="320" height="600">
+			<img src="./ocp_test_reports/cap7-q4.jpg" alt="" width="320" height="600">
 	    </div>
 	    <div class="col-sm-6">
 	    		<p>Attenzione alla base condition, in quanto se non raggiunta mai si genera un loop infinito che porta il codice ad andare in un loop infinito</p>

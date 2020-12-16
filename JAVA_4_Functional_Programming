@@ -63,7 +63,7 @@ Map&lt;Boolean,List&lt;String>> p = s1.collect(Collectors.partitioningBy(b-> b.s
 <div class="container">
   <div class="row">
     <div class="col-sm-4">
-<img src="file:\\\C:\\HOME_MIC\\knowledge@github.com\\repository\\ocp_test_reports\\cap4-q1.jpg" alt="" width="320" height="600">
+<img src="./ocp_test_reports/cap4-q1.jpg" alt="" width="320" height="600">
     </div>
     
     <div class="col-sm-6 offset-2">
@@ -75,7 +75,7 @@ Map&lt;Boolean,List&lt;String>> p = s1.collect(Collectors.partitioningBy(b-> b.s
 </div>
   <div class="row my-3">
     <div class="col-sm-4">
-<img src="file:\\\C:\\HOME_MIC\\knowledge@github.com\\repository\\ocp_test_reports\\cap4-q2.jpg" alt="" width="320" height="600">
+<img src="./ocp_test_reports/cap4-q2.jpg" alt="" width="320" height="600">
     </div>
     
     <div class="col-sm-6 offset-2">
@@ -84,7 +84,7 @@ Map&lt;Boolean,List&lt;String>> p = s1.collect(Collectors.partitioningBy(b-> b.s
 </div>
   <div class="row my-3">
     <div class="col-sm-4">
-<img src="file:\\\C:\\HOME_MIC\\knowledge@github.com\\repository\\ocp_test_reports\\cap4-q3.jpg" alt="" width="320" height="600">
+<img src="./ocp_test_reports/cap4-q3.jpg" alt="" width="320" height="600">
     </div>
     
     <div class="col-sm-6 offset-2">

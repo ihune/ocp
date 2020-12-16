@@ -32,7 +32,7 @@ But is not true:
 <div class="container">
   <div class="row">
     <div class="col-sm-5">
-<img src="file:\\\C:\\HOME_MIC\\knowledge@github.com\\repository\\ocp_test_reports\\cap5-q1.jpg" alt="" width="320" height="600">
+<img src="./ocp_test_reports/cap5-q1.jpg" alt="" width="320" height="600">
     </div>
     <div class="col-sm-6">
         <div class="row">A try-with-resource use parentheses tahter then brackets for the try section.
@@ -41,7 +41,7 @@ But is not true:
 </div>
   <div class="row py-3">
     <div class="col-sm-5">
-<img src="file:\\\C:\\HOME_MIC\\knowledge@github.com\\repository\\ocp_test_reports\\cap5-q2.jpg" alt="" width="320" height="600">
+<img src="./ocp_test_reports/cap5-q2.jpg" alt="" width="320" height="600">
     </div>
     <div class="col-sm-6">
         <div class="row">Oracle defines a locale as a geographical region. time zone often span multiple locales
@@ -51,7 +51,7 @@ But is not true:
 
   <div class="row my-3">
       <div class="col-sm-5">
-      <img src="file:\\\C:\\HOME_MIC\\knowledge@github.com\\repository\\ocp_test_reports\\cap5-q3.jpg" alt="" width="320" height="600">
+      <img src="./ocp_test_reports/cap5-q3.jpg" alt="" width="320" height="600">
       </div>
       <div class="col-sm-6">
           <p>Suppose we have a ZonedDateTime:</p>
@@ -72,7 +72,7 @@ But is not true:
   </div>
   <div class="row my-3">
       <div class="col-sm-5">
-      <img src="file:\\\C:\\HOME_MIC\\knowledge@github.com\\repository\\ocp_test_reports\\cap5-q4.jpg" alt="" width="320" height="600">
+      <img src="./ocp_test_reports/cap5-q4.jpg" alt="" width="320" height="600">
       </div>
       <div class="col-sm-6">
           <p>The Properties class defines a get() method that does not allow for a default value. It also has a getProperty() method, which returns the default value if the key is not provided</p>
