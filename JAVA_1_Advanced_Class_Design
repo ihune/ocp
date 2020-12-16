@@ -17,7 +17,7 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-4">
-            <img src="https://github.com/ihune/ocp/blob/main/ocp_test_reports/cap1-q1.jpg" alt="" width="320" height="600">
+            <img src="http://htmlpreview.github.io/?https://github.com/ihune/ocp/blob/main/ocp_test_reports/cap1-q1.jpg" alt="" width="320" height="600">
         </div>
         <div class="col-sm-6 offset-2">
         	ArticMountainClimb will not compile due to the deafult modifier without the implementation needed
