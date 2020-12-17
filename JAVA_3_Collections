@@ -22,11 +22,11 @@
         <div class="col-sm-6">
                 <p>
                     <ul>
-                        <li style="color: red;">List<? extends Number> list: upper bounded wildcard - not allows adding in the list</li>
-                        <li>List<Number> list: does not use generics, specifies the type Number, 123 autoboxes to Integer, which is a Number</li>
-                        <li style="color: red;">List<?> list: is the unbounded wildcard -  not allows adding in the list</li>
-                        <li>List<? super Number> list: lower bouded wildcard -  allows adding of Number and all its subclasses</li>
-                        <li>E no, implements do not exists as part of a generic type</li>
+                        <li style="color: red;">List&lt;? extends Number> list: upper bounded wildcard - not allows adding in the list</li>
+                        <li>List&lt;Number> list: does not use generics, specifies the type Number, 123 autoboxes to Integer, which is a Number</li>
+                        <li style="color: red;">List&lt;?> list: is the unbounded wildcard -  not allows adding in the list</li>
+                        <li>List&lt;? super Number> list: lower bouded wildcard -  allows adding of Number and all its subclasses</li>
+                        <li style="color: red;">E no, implements do not exists as part of a generic type</li>
                         <li>List list: does not use generics, OK</li>
                     </ul>
                 </p>
