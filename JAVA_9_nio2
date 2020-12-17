@@ -11,25 +11,28 @@
 	  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-<div class="container">    
-<h2>Test</h2>
+<div class="container my-3">    
+<h2>NIO</h2>
 java.nio (NIO stands for Non-blocking I/O) is a collection of Java programming language APIs that offer features for intensive I/O operations.
 <ul>
   <li>NIO was introduced in Java 1.4, in the <b>java.nio</b> package and its subpackages, with the concept of buffers and channels of java.io.streams</li>
   <li>NIO2 was introduced in Java 1.7, as replacement of the legacy java.io.File class with the content of the package <b>java.nio.file</b> <p>The package <b>java.nio.file</b> has <b>Path</b> interface and <b>Files</b> and <b>Paths</b> helper classes </p></li>
 </ul>
+<a class="btn btn-primary" data-toggle="collapse" href="#collapse2" role="button" aria-expanded="false" aria-controls="collapseExample">create directories</a>
+<div class="collapse" id="collapse2">
+    <h2>To create directories </h2>
 
-<h2>To create directories </h2>
+    in the legacy java.io API)  we called mkdir() or mkdirs() on a file object. 
 
-in the legacy java.io API)  we called mkdir() or mkdirs() on a file object. 
+    in the java.nio API)        we can use Files.createDirectory(Path) method 
+                                Files.createDirectories() which leading up top the target directory in the path
+    Directory creation can throw the checked exception IOException, such as when the directory cannot be created or already exists.
+    createDirectory(Path) --> IOException if parent dir not exists.
 
-in the java.nio API)        we can use Files.createDirectory(Path) method 
-                            Files.createDirectories() which leading up top the target directory in the path
-Directory creation can throw the checked exception IOException, such as when the directory cannot be created or already exists.
-createDirectory(Path) --> IOException if parent dir not exists.
-
-Both of these methods also accept an optional list of FileAttribute<?> values to set on the newly created directory or directories.
-
+    Both of these methods also accept an optional list of FileAttribute<?> values to set on the newly created directory or directories.
+</div>
+<a class="btn btn-primary" data-toggle="collapse" href="#collapse3" role="button" aria-expanded="false" aria-controls="collapseExample">Escaping Chars</a>
+<div class="collapse" id="collapse3">
 <h2>    Escaping Chars</h2>
 
 Java requires escaping a blackslash with another backslash.
@@ -46,17 +49,34 @@ Java requires escaping a blackslash with another backslash.
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-<h2>Test</h2>
-<div class="container">
-  <div class="row">
-    <div class="col-sm-4">
-<img src="./ocp_test_reports/cap9-q1.jpg" alt="" width="320" height="600">
+</div>
+<h2 class="my-3">Test</h2>
+
+<a class="btn btn-secondary" data-toggle="collapse" href="#collapse4" role="button" aria-expanded="false" aria-controls="collapseExample">New Directory</a>
+<div class="collapse" id="collapse4">
+      <div class="row my-3">
+        <div class="col-sm-4">
+            <img src="./ocp_test_reports/cap9-q2.jpg" alt="" width="320" height="600">
+        </div>
+        
+        <div class="col-sm-6 offset-2">
+                The first clause of the if statement will be true only if the target of the simbolic link, /mammal/kangaroo esists, since by deafult isDirectory() follows symbolic link, so A is correct!!
+        </div>
     </div>
-    
-    <div class="col-sm-6 offset-2">
-        <div class="row">The Path interface contains getRoot() and toRealPath()</div>
-        <div class="row">IsDirectory() is in java.nio.file.Files </div>
-        <div class="row">listFiles() is in java.nio.file.Files </div>
+</div>
+
+<a class="btn btn-secondary" data-toggle="collapse" href="#collapse1" role="button" aria-expanded="false" aria-controls="collapseExample">Path</a>
+<div class="collapse" id="collapse1">
+      <div class="row my-3">
+        <div class="col-sm-4">
+            <img src="./ocp_test_reports/cap9-q1.jpg" alt="" width="320" height="600">
+        </div>
+        
+        <div class="col-sm-6 offset-2">
+            <div class="row">The Path interface contains getRoot() and toRealPath()</div>
+            <div class="row">IsDirectory() is in java.nio.file.Files </div>
+            <div class="row">listFiles() is in java.nio.file.Files </div>
+        </div>
     </div>
 </div>
 </div>
