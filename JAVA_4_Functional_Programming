@@ -59,7 +59,7 @@ Stream&lt;String> s1 = Stream.empty();
 Map&lt;Boolean,List&lt;String>> p = s1.collect(Collectors.partitioningBy(b-> b.startsWith("c")));
 {false=[], true=[]}	
 
-<h1>Test</h1>
+<h2>Test</h2>
 <div class="container">
   <div class="row">
     <div class="col-sm-4">

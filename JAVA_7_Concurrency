@@ -94,7 +94,7 @@ To prevent that more than one instance from being created, we use a static synch
 
 Se join è chiamato immediatamente dopo il fork, causando l'attesa del processo, non ci saranno miglioramenti di prestazioni in termini di parallelizzazione.
 
-	<h1>Test</h1>
+<h2>Test</h2>
 <div class="container">
   <div class="row">
     <div class="col-sm-5">

@@ -13,7 +13,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <h1>Advanced Class Design</h1>
 
-<h1>Test</h1>
+<h2>Test</h2>
 <div class="container">
     <div class="row">
         <div class="col-sm-4">

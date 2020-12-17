@@ -29,7 +29,7 @@
 
 <p>File and IOStreams</p>
 	A file is a record within the filesytem that stores user and system data.
-	<h1>Test</h1>
+<h2>Test</h2>
 <div class="container">
   <div class="row">
     <div class="col-sm-4">

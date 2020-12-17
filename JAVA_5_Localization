@@ -28,7 +28,7 @@ Java class resource bundles can have non-String values while property files are 
 But is not true:
 - all the resource bundles defined as java classes can be expressed using property file format 
 
-	<h1>Test</h1>
+<h2>Test</h2>
 <div class="container">
   <div class="row">
     <div class="col-sm-5">

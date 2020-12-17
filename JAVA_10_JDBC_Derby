@@ -19,7 +19,7 @@ There are also methods to start at the beginning and end of the ResultSet (first
 The ResultSet types are 
 <ul><li>TYPE_FORWARD_ONLY</li><li>TYPE_SCROLL_INSENSITIVE</li><li>TYPE_SCROLL_SENSITIVE</li></ul>
 The last two allow the ResultSet to be scrollable. TYPE_SCROLL_INSENSITIVE means that you can go through tha data in order but don't see changes made in the database while you are scrolling. By default, a Statement is not scarollable.
-<h1>Test</h1>
+<h2>Test</h2>
 <div class="container">
   <div class="row">
     <div class="col-sm-4">
