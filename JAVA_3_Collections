@@ -11,10 +11,11 @@
 	  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<div class="container">    
 <a href="https://docs.oracle.com/javase/8/docs/api/java/util/Collection.html"><h1>Optionals and Collection</h1></a>
-
+ <p>Unbounded and upper bouded wildcard (A) do not allow adding to list!!!</p>
 <h2>Test</h2>
-<div class="container">
+
     <div class="row my-3">
         <div class="col-sm-5">
             <img src="./ocp_test_reports/cap3-q1.jpg" alt="" width="320" height="600">
@@ -30,6 +31,7 @@
                         <li>List list: does not use generics, OK</li>
                     </ul>
                 </p>
+                <p>C is wrong, unbounded and upper bouded wildcard (A) do not allow adding to list!!!</p>
         </div>
     </div>  
 </div>
