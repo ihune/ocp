@@ -17,18 +17,13 @@
 
 <h1>Test</h1>
 <div class="container">
-  <div class="row">
-    <div class="col-sm-4">
-<img src="./ocp_test_reports/cap4-q1.jpg" alt="" width="320" height="600">
-    </div>
-    
-    <div class="col-sm-6 offset-2">
-    	Take a predicate and return an Optional --- None 
-    	<p>Optional&lt;T>	findAny()</p>
-    	<p>Stream&lt;T>	filter(Predicate&lt;? super T> predicate)</p>
-    	<p>boolean	allMatch(Predicate&lt;? super T> predicate)</p>
-    </div>
-</div>
- 
+    <div class="row my-3">
+        <div class="col-sm-5">
+            <img src="./ocp_test_reports/cap3-q1.jpg" alt="" width="320" height="600">
+        </div>
+        <div class="col-sm-6">
+                <p>Attenzione alla base condition, in quanto se non raggiunta mai si genera un loop infinito che porta il codice ad andare in un loop infinito</p>
+        </div>
+    </div>  
 </div>
 </body>
