@@ -124,7 +124,7 @@ This code consistently outputs the first value in the serial stream, 1. With a p
  <div class="collapse" id="collapse1">
     <div class="row my-3">
         <div class="col-sm-5">
-            <img src="./ocp_test_reports/cap3-q2.jpg" alt="" width="320" height="600">
+            <img src="./ocp_test_reports/cap7-q5.jpg" alt="" width="320" height="600">
         </div>
         <div class="col-sm-6">
         	<h3>Parallel reductions</h3>
@@ -219,7 +219,7 @@ This code consistently outputs the first value in the serial stream, 1. With a p
 		</div>
 	</div>
  	<a class="btn btn-secondary" data-toggle="collapse" href="#collapse5" role="button" aria-expanded="false" aria-controls="collapseExample">ForkJoin</a>
-	 	<div class="collapse" id="collapse5">	
+	<div class="collapse" id="collapse5">	
 		<div class="row my-3">
 		    <div class="col-sm-5">
 				<img src="./ocp_test_reports/cap7-q4.jpg" alt="" width="320" height="600">
@@ -227,7 +227,26 @@ This code consistently outputs the first value in the serial stream, 1. With a p
 		    <div class="col-sm-6">
 		    		<p>Attenzione alla base condition, in quanto se non raggiunta mai si genera un loop infinito che porta il codice ad andare in un loop infinito</p>
 		    </div>
+		</div>
 	</div>
+
+ 	<a class="btn btn-secondary my-3" data-toggle="collapse" href="#collapse6" role="button" aria-expanded="false" aria-controls="collapseExample">ThreadCreateImplementation</a>
+	<div class="collapse" id="collapse6">	
+		<div class="row my-3">
+		    <div class="col-sm-5">
+				<img src="./ocp_test_reports/cap7-q6.jpg" alt="" width="320" height="600">
+		    </div>
+		    <div class="col-sm-6">
+		    	The code compile witout issue. The return type of performCount() is Integer, so submit is interpreted as being applied to a Callable&lt;Integer> value. In this manner, the Future&lt;?> is really a Future&lt;Integer> value. </br>Now with respect the return of the performCount() the following cases are all possible:
+		    	<ul>
+		    		<li>performCount() returns Integer 	-> outputs a number 10 times</li>
+		    		<li>performCount() returns null 	-> outputs a null 10 times</li>
+		    		<li>performCount() returns Exception 	-> outputs a Exception 10 times</li>
+		    		<li>performCount() hangs in a deadlock	-> Hangs indefinitely at runtime</li>
+		    	</ul>
+		    </div>
+		</div>
+	</div>	
 </div>
 </body>
 

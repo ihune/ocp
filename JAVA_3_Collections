@@ -15,7 +15,8 @@
 <a href="https://docs.oracle.com/javase/8/docs/api/java/util/Collection.html"><h1>Optionals and Collection</h1></a>
  <p>Unbounded and upper bouded wildcard (A) do not allow adding to list!!!</p>
 <h2>Test</h2>
-
+<a class="btn btn-primary" data-toggle="collapse" href="#collapse1" role="button" aria-expanded="false" aria-controls="collapseExample">Generic</a>
+<div class="collapse" id="collapse1">
     <div class="row my-3">
         <div class="col-sm-5">
             <img src="./ocp_test_reports/cap3-q1.jpg" alt="" width="320" height="600">
@@ -35,5 +36,20 @@
         </div>
     </div>
  
+
+
+
+<a class="btn btn-primary" data-toggle="collapse" href="#collapse3" role="button" aria-expanded="false" aria-controls="collapseExample">Choose a Collection</a>
+<div class="collapse" id="collapse3">
+    <div class="row my-3">
+        <div class="col-sm-5">
+            <img src="./ocp_test_reports/cap1-q3.jpg" alt="" width="320" height="600">
+        </div>
+        <div class="col-sm-6">
+            <p>Since the problem description talks about keys (identifier) and values (animals), a Map is the answer. HashMap is the best choice withr espect the TreeSet as the sort order was not mentioned.</p>
+        </div>
+    </div>  
+</div>
+
 </div>
 </body>

@@ -12,11 +12,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <div class="container">
-<h1>Advanced Class Design</h1>
+<h1 class="my-3">Advanced Class Design</h1>
 
 <h2>Test</h2>
-
-    <div class="row">
+<a class="btn btn-primary" data-toggle="collapse" href="#collapse0" role="button" aria-expanded="false" aria-controls="collapseExample">Interface</a>
+<div class="collapse" id="collapse0">
+    <div class="row my-3">
         <div class="col-sm-4">
             <img src="./ocp_test_reports/cap1-q1.jpg" alt="" width="320" height="600">
         </div>
@@ -24,13 +25,22 @@
         	ArticMountainClimb will not compile due to the deafult modifier without the implementation needed
         </div>
     </div>
+</div>
+
+<a class="btn btn-primary" data-toggle="collapse" href="#collapse1" role="button" aria-expanded="false" aria-controls="collapseExample">Equals and HashCode</a>
+<div class="collapse" id="collapse1">
     <div class="row my-3">
         <div class="col-sm-5">
             <img src="./ocp_test_reports/cap1-q2.jpg" alt="" width="320" height="600">
         </div>
-        <div class="col-sm-6">
-            <p>Since the problem description talks about keys (identifier) and values (animals), a Map is the answer. HashMap is the best choice withr espect the TreeSet as the sort order was not mentioned.</p>
+        <div class="col-sm-6"><ul>
+            <b>Two equal objects MUST have the same hashcode. </b>
+            <li>TRUE equal hashcode    -> equal obj not always TRUE </li>
+            <li>FALSE equal hashcode   -> equal obj are ALWAYS FALSE </li>
+        </ul>
         </div>
     </div>  
+</div>
+
 </div>
 </body>
