@@ -21,18 +21,19 @@
             <img src="./ocp_test_reports/cap3-q1.jpg" alt="" width="320" height="600">
         </div>
         <div class="col-sm-6">
-                <p>
-                    <ul>
-                        <li style="color: red;">List&lt;? extends Number> list: upper bounded wildcard - not allows adding in the list</li>
-                        <li>List&lt;Number> list: does not use generics, specifies the type Number, 123 autoboxes to Integer, which is a Number</li>
-                        <li style="color: red;">List&lt;?> list: is the unbounded wildcard -  not allows adding in the list</li>
-                        <li>List&lt;? super Number> list: lower bouded wildcard -  allows adding of Number and all its subclasses</li>
-                        <li style="color: red;">E no, implements do not exists as part of a generic type</li>
-                        <li>List list: does not use generics, OK</li>
-                    </ul>
-                </p>
-                <p>C is wrong, unbounded and upper bouded wildcard (A) do not allow adding to list!!!</p>
+            <p>
+                <ul>
+                    <li style="color: red;">List&lt;? extends Number> list: upper bounded wildcard - not allows adding in the list</li>
+                    <li>List&lt;Number> list: does not use generics, specifies the type Number, 123 autoboxes to Integer, which is a Number</li>
+                    <li style="color: red;">List&lt;?> list: is the unbounded wildcard -  not allows adding in the list</li>
+                    <li>List&lt;? super Number> list: lower bouded wildcard -  allows adding of Number and all its subclasses</li>
+                    <li style="color: red;">E no, implements do not exists as part of a generic type</li>
+                    <li>List list: does not use generics, OK</li>
+                </ul>
+            </p>
+            <p>C is wrong, unbounded and upper bouded wildcard (A) do not allow adding to list!!!</p>
         </div>
-    </div>  
+    </div>
+ 
 </div>
 </body>

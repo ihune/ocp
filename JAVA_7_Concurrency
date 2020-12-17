@@ -7,16 +7,19 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-	<head><title>Concurrent Processes</title></head>
+	<head><title>Concurrency</title></head>
 <body>
 	  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <div class="container">
-<h1>Concurrent Processes</h1>
-<p><bold>what is a thread?</bold> is the smallest UoE that can be scheduled by an OS</p>
-<p><bold>what is a process?</bold> a group of associated thread that can execute in the same, shared environment</p>
-
+<h1 class="my-3">Concurrency</h1>
+<div><bold>What is a thread?</bold> is the smallest UoE that can be scheduled by an OS</div>
+<div><bold>What is a process?</bold> a group of associated thread that can execute in the same, shared environment</div>
+<div class="my-3">
+  <a class="btn btn-primary" data-toggle="collapse" href="#ManagingConcurrent" role="button" aria-expanded="false" aria-controls="collapseExample">Managing Concurrent Processes</a>
+ </div>
+ <div class="collapse" id="ManagingConcurrent">
 <h2>Managing Concurrent Processes Coordinate tasks among group of related thread</h2>
 	
 	Esempio dello zoo con 4 lavoratori e di una gabbia dei leoni che deve essere svuotata, pulita e riempita di nuovo.
@@ -93,22 +96,64 @@ To prevent that more than one instance from being created, we use a static synch
 	<h3>Fork/Join</h3>
 
 Se join è chiamato immediatamente dopo il fork, causando l'attesa del processo, non ci saranno miglioramenti di prestazioni in termini di parallelizzazione.
+</div>
+<div class="my-3">
+  <a class="btn btn-primary" data-toggle="collapse" href="#ParallelReductions" role="button" aria-expanded="false" aria-controls="collapseExample">Parallel reductions</a>
+ </div>
+ <div class="collapse" id="ParallelReductions">
+ The result of parallel reductions can be different from what you expect when working with serial streams.
+</br>The order is not guaranteed with parallel streams, methods such as <b><i>findAny()</i></b> on parallel streams <b>may result in an  unexpected behaviour.</b>
+ <div class="row ">
+ 	<div class="col-sm-8 text-center">System.out.println( Arrays.asList(1,2,3,4,5,6).stream().findAny().get());</div>
+ 	<div class="col-sm-3">1</div>
+ </div><div class="my-2">
+This code consistently outputs the first value in the serial stream, 1. With a parallel stream, the JVM can create any number of thread to process the stream. When you call <i>findAny()</i> on a parallel stream , the JVM select the first thread to finish the task and retrieves its data</div>
+ <div class="row ">
+ 	<div class="col-sm-8 text-center">System.out.println( Arrays.asList(1,2,3,4,5,6).parallelStream().findAny().get());</div>
+ 	<div class="col-sm-3">4</div>
+ </div><div class="my-2">
+ 	The result could be any value in the stream. With parallel streams, the results of <i>findAny()</i> is not longer predictable. </br><b>Any stream operation that is based on order,</b> <i>findAny(), findFirst(), limit(), skip()</i> <b>may actually perform more slowly in a parallel environment.</b> This is a result of a parallel processing task being forced to coordinate all of its threads in a synchronized-like fashion.</br>
+ 	The result of <b>ordered operations</b> on a <i>parallel stream</i> will be consistent with a <i>serial stream</i>. These operations will return the same result on ordered serail and parallel streams.
+ </div>
+ <p>Streams are ordered by default.	On serial stream, using unordered version has no effect, but on parallel streams, the result can greatly improve performance.</p>
+</div>
 
-<h2>Test</h2>
-  <div class="row">
+<h2 class="my-3">Test</h2>
+  <a class="btn btn-secondary" data-toggle="collapse" href="#collapse1" role="button" aria-expanded="false" aria-controls="collapseExample">Parallel reductions</a>
+
+ <div class="collapse" id="collapse1">
+    <div class="row my-3">
+        <div class="col-sm-5">
+            <img src="./ocp_test_reports/cap3-q2.jpg" alt="" width="320" height="600">
+        </div>
+        <div class="col-sm-6">
+        	<h3>Parallel reductions</h3>
+            <p style="color: red">Wrong answer: H) The code will not compile because of line y2</p>
+            <p>The code compile and runs without issue, so D, H, F, B and E are incorrect. There are two important things to notice:</p>
+            <ul>
+                <li>first, synchronizing on the first ouuput doesn't actually impact the result of the code.</li>
+                <li>second, sorting on parallel stream does not mean that findAny() will return the first reecord</li>
+            </ul>
+            <p>The findAny() method will return the value from the first thread that retrieve a record. Threfore, the output is not guaranteed for parallel stream.</p>
+        </div>
+    </div>
+</div>
+  <a class="btn btn-secondary" data-toggle="collapse" href="#collapse2" role="button" aria-expanded="false" aria-controls="collapseExample">Define an asynchronous task</a>
+
+ <div class="collapse" id="collapse2">
+  <div class="row my-3">
     <div class="col-sm-5">
 		<img src="./ocp_test_reports/cap7-q1.jpg" alt="" width="320" height="600">
     </div>
     <div class="col-sm-6">
-    	  <div class="row">
-      The best way to define an asynchronous task?
-      	<ul>
-      		<li>Create a Callable and pass it to an instance of <bold>ExecutorService</bold>, not to an instance of Executors</li>
-			<li>Create a Runnable expression and pass to a Thread constructor, the most common way</li>
-			<li>Create a class that extends Thread and overrides the run() method, not the start() one</li>
-		</ul>    	
-	</div>
-		  <div class="row">
+    	  <div class="row">	The best way to define an asynchronous task?
+	      	<ul>
+	      		<li>Create a Callable and pass it to an instance of <bold>ExecutorService</bold>, not to an instance of Executors</li>
+				<li>Create a Runnable expression and pass to a Thread constructor, the most common way</li>
+				<li>Create a class that extends Thread and overrides the run() method, not the start() one</li>
+			</ul>    	
+		</div>
+	<div class="row">
 		  	<h3>Submitting a task</h3>
 		  	<p>You can submit a task to an ExecutorService instance via multiple ways:</p>
 		  	<ul>
@@ -116,9 +161,8 @@ Se join è chiamato immediatamente dopo il fork, causando l'attesa del processo,
       			<li>Future &lt;?> submit(Runnable)</li>
       			<li>Future &lt;?> submit(Callable)</li>
       		</ul>
-
-		  </div>
-		  <div class="row">
+    </div>
+	<div class="row">
 		  	<div class="col-sm-12"><h3 style="display:block;">Future</h3></div>
 		  	<p>Submitting a task ..</p>
 		  	<p class="h6 small" >Future &lt;?> future = service.submit(() -> System.out.println("Hello"));</p>
@@ -134,47 +178,56 @@ Se join è chiamato immediatamente dopo il fork, causando l'attesa del processo,
 		  </div>		  
     </div>
   </div>
-   <div class="row">
-    <div class="col-sm-5">
-		<img src="./ocp_test_reports/cap7-q2.jpg" alt="" width="320" height="600">
-    </div>
-    <div class="col-sm-6">
-    	<div class="row">
-    		<p>The question is which static method in <b>ExecutorService</b> should use to create tasks for a CB. But a ExecutorService does not contain any of these methods. In order to obtain an instance of a thread executor you need to use the <b>Executors</b> factory class.</p>
-    		<p><b>ExecutorService</b>is an interface that go together with the factory class <b>Executors</b>, that has the methods:
-    		<ul>
-    			<ul>
-    				<li>newSingleThreadExecutor</li>
-    				<li>newSingleThreadScheduledExecutor</li>
-    			</ul>
-    			<ul>
-					<li>newFixedThreadPoolExecutor</li>
-					<li>newCachedThreadPoolExecutor</li>
-					<li>newScheduledThreadPoolExecutor</li>
-				</ul>
-    		</ul>
-    		</p> 
-    	</div>
-    </div>
 </div>
-	<div class="row my-3">
-	    <div class="col-sm-5">
-			<img src="./ocp_test_reports/cap7-q3.jpg" alt="" width="320" height="600">
-	    </div>
-	    <div class="col-sm-6">
-	    		<p>Qui non si richiede che il codice crei un thread eseguibile. Qui si richiede solo che il codice compili.</p>
-	    		<b>An anonymous inner class can either extends a class or implement an interface.</b> Runnable is an interface with one method. 
-	    		<p>Thread is a concrete class, making implementing the run() method optional.</p>
-	    </div>
+ 	<a class="btn btn-secondary" data-toggle="collapse" href="#collapse3" role="button" aria-expanded="false" aria-controls="collapseExample">ExecutorService</a>
+ 	<div class="collapse" id="collapse3">
+		<div class="row my-3">
+		    <div class="col-sm-5">
+				<img src="./ocp_test_reports/cap7-q2.jpg" alt="" width="320" height="600">
+		    </div>
+		    <div class="col-sm-6">
+		    	<div class="row">
+		    		<p>The question is which static method in <b>ExecutorService</b> should use to create tasks for a CB. But a ExecutorService does not contain any of these methods. In order to obtain an instance of a thread executor you need to use the <b>Executors</b> factory class.</p>
+		    		<p><b>ExecutorService</b>is an interface that go together with the factory class <b>Executors</b>, that has the methods:
+		    		<ul>
+		    			<ul>
+		    				<li>newSingleThreadExecutor</li>
+		    				<li>newSingleThreadScheduledExecutor</li>
+		    			</ul>
+		    			<ul>
+							<li>newFixedThreadPoolExecutor</li>
+							<li>newCachedThreadPoolExecutor</li>
+							<li>newScheduledThreadPoolExecutor</li>
+						</ul>
+		    		</ul>
+		    		</p> 
+		    	</div>
+		    </div>
+		</div>
 	</div>
-	<div class="row my-3">
-	    <div class="col-sm-5">
-			<img src="./ocp_test_reports/cap7-q4.jpg" alt="" width="320" height="600">
-	    </div>
-	    <div class="col-sm-6">
-	    		<p>Attenzione alla base condition, in quanto se non raggiunta mai si genera un loop infinito che porta il codice ad andare in un loop infinito</p>
-	    </div>
-	</div>	
+ 	<a class="btn btn-secondary" data-toggle="collapse" href="#collapse4" role="button" aria-expanded="false" aria-controls="collapseExample">Anonymous inner class</a>
+ 	<div class="collapse" id="collapse4">	
+		<div class="row my-3">
+			    <div class="col-sm-5">
+					<img src="./ocp_test_reports/cap7-q3.jpg" alt="" width="320" height="600">
+			    </div>
+			    <div class="col-sm-6">
+			    		<p>Qui non si richiede che il codice crei un thread eseguibile. Qui si richiede solo che il codice compili.</p>
+			    		<b>An anonymous inner class can either extends a class or implement an interface.</b> Runnable is an interface with one method. 
+			    		<p>Thread is a concrete class, making implementing the run() method optional.</p>
+			    </div>
+		</div>
+	</div>
+ 	<a class="btn btn-secondary" data-toggle="collapse" href="#collapse5" role="button" aria-expanded="false" aria-controls="collapseExample">ForkJoin</a>
+	 	<div class="collapse" id="collapse5">	
+		<div class="row my-3">
+		    <div class="col-sm-5">
+				<img src="./ocp_test_reports/cap7-q4.jpg" alt="" width="320" height="600">
+		    </div>
+		    <div class="col-sm-6">
+		    		<p>Attenzione alla base condition, in quanto se non raggiunta mai si genera un loop infinito che porta il codice ad andare in un loop infinito</p>
+		    </div>
+	</div>
 </div>
 </body>
 

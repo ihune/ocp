@@ -15,27 +15,31 @@
 <div class="container">    
 <a href="https://docs.oracle.com/javase/8/docs/api/java/util/stream/package-summary.html"><h1>java.util.stream</h1></a>
 
-Intermediate Operations:
-    1. Filter:
-    DoubleStream java.util.stream.DoubleStream.filter(DoublePredicate predicate)
+<h3>Intermediate Operations</h3>
+    Filter: DoubleStream java.util.stream.DoubleStream.filter(DoublePredicate predicate)
 
-Termianl Operations:
- If there is a terminal operation, the stream runs with its starting and intermediate opererations.
-    count()
+<h3>Terminal Operations</h3>
+If there is a terminal operation, the stream runs with its starting and intermediate opererations.
+<ul>
+    <li>count()</li>
+    <li>min(), max()</li>
+    <li>findAny(), findFirst()</li>
+    <li>allMatch(), anyMatch(), noneMatch()</li>
+    <li>forEach(), reduce(), collect()</li>
+</ul> 
 
+<h3>Working with Advances Stream pipeline Concepts</h3>
 
-Working with Advances Stream pipeline Concepts:
+        <div>String in="Questa e' una frase";</div>
+        <div>char[] arr = in.toCharArray() ;</div>
+        <div>Predicate&lt;Character> vow= c -> "aeiou".contains( String.valueOf(c) ) ;</div>
+        <div>Stream&lt;Character> vStream = IntStream.range(0, arr.length).mapToObj(i -> arr[i]).filter(vow);</div>
+        <div>Map&lt;Character, Integer> aa=vStream.collect(Collectors.toMap(c->c, w -> 1, Integer::sum ));</div,>
 
-        String in="Questa e' una frase";
-        char[] arr = in.toCharArray() ;
-        Predicate<Character> vow= c -> "aeiou".contains( String.valueOf(c) ) ;
-        Stream<Character> cStream = IntStream.range(0, arr.length).mapToObj(i -> arr[i]);
-        Stream<Character> vStream = cStream.filter(vow) ;
-        Map<Character, Integer> aa=vStream.collect(Collectors.toMap(c->c, w -> 1, Integer::sum ));
-        System.out.print(aa);
+<p style="color: green;">{a=3, e=3, u=2}</p>
 
-
-<h2>Collectors.groupingBy</h2>
+<h2>Collectors</h2>
+<h3>Collectors.groupingBy</h3>
 &lt;String, Boolean> Collector<String, ?, Map&lt;Boolean, List&lt;String>>> java.util.stream.Collectors
 .groupingBy(Function&lt;? super String, ? extends Boolean> classifier)
 
@@ -48,7 +52,7 @@ Stream&lt;String> s1 = Stream.empty();
 Map&lt;Boolean,List&lt;String>> g = s1.collect(Collectors.groupingBy(b-> b.startsWith("c")));
 {}
 
-<h2>Collectors.partitioningBy</h2>
+<h3>Collectors.partitioningBy</h3>
 
 	<p> &lt;String> Collector&lt;String, ?, Map&lt;Boolean, List&lt;String>>> java.util.stream.Collectors
 .partitioningBy(Predicate&lt;? super String> predicate)&lt;</p>
@@ -63,39 +67,40 @@ Map&lt;Boolean,List&lt;String>> p = s1.collect(Collectors.partitioningBy(b-> b.s
 
 <h2>Test</h2>
 
-  <div class="row">
-    <div class="col-sm-4">
-<img src="./ocp_test_reports/cap4-q1.jpg" alt="" width="320" height="600">
+      <div class="row">
+        <div class="col-sm-4">
+             <img src="./ocp_test_reports/cap4-q1.jpg" alt="" width="320" height="600">
+        </div>
+        
+        <div class="col-sm-6 offset-2">
+        	Take a predicate and return an Optional --- None 
+        	<p>Optional&lt;T>	findAny()</p>
+        	<p>Stream&lt;T>	filter(Predicate&lt;? super T> predicate)</p>
+        	<p>boolean	allMatch(Predicate&lt;? super T> predicate)</p>
+        </div>
     </div>
-    
-    <div class="col-sm-6 offset-2">
-    	Take a predicate and return an Optional --- None 
-    	<p>Optional&lt;T>	findAny()</p>
-    	<p>Stream&lt;T>	filter(Predicate&lt;? super T> predicate)</p>
-    	<p>boolean	allMatch(Predicate&lt;? super T> predicate)</p>
+      <div class="row my-3">
+        <div class="col-sm-4">
+    <img src="./ocp_test_reports/cap4-q2.jpg" alt="" width="320" height="600">
+        </div>
+        
+        <div class="col-sm-6 offset-2">
+            DoubleSupplier and Supplier&ltDouble> are both FI of java.util.function package. The former use a Double and the latter use the primitive double.
+        </div>
     </div>
-</div>
-  <div class="row my-3">
-    <div class="col-sm-4">
-<img src="./ocp_test_reports/cap4-q2.jpg" alt="" width="320" height="600">
+      <div class="row my-3">
+        <div class="col-sm-4">
+            <img src="./ocp_test_reports/cap4-q3.jpg" alt="" width="320" height="600">
+        </div>
+        
+        <div class="col-sm-6 offset-2">
+           <ul>
+               <li> Supplier&ltString> for the constructor, for sure because uses a constructor reference</li>
+               <li> BiConsumer&ltString, String>, takes two parameters and not retruns anything, so BiConsumer </li>
+               <li> UnaryOperator&ltString>Takes a parameter and return the same, so it is an operator...</li> 
+           </ul>
+        </div>
     </div>
-    
-    <div class="col-sm-6 offset-2">
-        DoubleSupplier and Supplier&ltDouble> are both FI of java.util.function package. The former use a Double and the latter use the primitive double.
-    </div>
-</div>
-  <div class="row my-3">
-    <div class="col-sm-4">
-<img src="./ocp_test_reports/cap4-q3.jpg" alt="" width="320" height="600">
-    </div>
-    
-    <div class="col-sm-6 offset-2">
-       <ul>
-           <li> Supplier&ltString> for the constructor, for sure because uses a constructor reference</li>
-           <li> BiConsumer&ltString, String>, takes two parameters and not retruns anything, so BiConsumer </li>
-           <li> UnaryOperator&ltString>Takes a parameter and return the same, so it is an operator...</li> 
-       </ul>
-    </div>
-</div>
+  
 </div>
 </body>

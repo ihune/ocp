@@ -11,8 +11,11 @@
 	  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-<div class="container">    
-<a href="https://docs.oracle.com/javase/7/docs/api/java/io/package-summary.html"><h1>java.io</h1></a>
+<div class="container my-3">    
+<a  href="https://docs.oracle.com/javase/7/docs/api/java/io/package-summary.html"><h1>java.io</h1></a>
+<a class="btn btn-primary" data-toggle="collapse" href="#collapse0" role="button" aria-expanded="false" aria-controls="collapseExample">IO Fundamentals</a>
+<div class="collapse" id="collapse0">
+
 <h2>Java IO Fundamentals </h2>
 
 <p>Reading and writing data from the console</p>
@@ -29,28 +32,45 @@
 
 <p>File and IOStreams</p>
 	A file is a record within the filesytem that stores user and system data.
-<h2>Test</h2>
-<div class="container">
-  <div class="row">
-    <div class="col-sm-4">
-<img src="./ocp_test_reports/cap8-q1.jpg" alt="" width="320" height="600">
-    </div>
-    
-    <div class="col-sm-6 offset-2">
-		You have an InputStream, but not all java.io.streams support the mark operation. If mark supperted the result would be XYZY. <b>If the stream does not support it a runtime exception is likely thrown.</b>
+</div>
+<h2 class="my-3">Test</h2>
+
+<a class="btn btn-secondary" data-toggle="collapse" href="#collapse3" role="button" aria-expanded="false" aria-controls="collapseExample">R/W vs INS/ONS</a>
+<div class="collapse" id="collapse3">
+    <div class="row my-3" > 
+        <div class="col-sm-4">
+            <img src="./ocp_test_reports/cap8-q3.jpg" alt="" width="320" height="600">
+        </div>
+        <div class="col-sm-6 offset-2">
+           Byte streams are appropiate when reading and writing binary data such as images!
+        </div>
     </div>
 </div>
 
-  <div class="row my-3">
-    <div class="col-sm-4">
-<img src="./ocp_test_reports/cap8-q2.jpg" alt="" width="320" height="600">
-    </div>
-    
-    <div class="col-sm-6 offset-2">
-    	<p>renameTo ok, getLength, no, listFile no, createdirecorty no</p>
-    	<p>Attenzione: listFiles c'è ma non listFile</p>
+<a class="btn btn-secondary" data-toggle="collapse" href="#collapse1" role="button" aria-expanded="false" aria-controls="collapseExample">Mark on InputStream</a>
+<div class="collapse" id="collapse1">
+
+    <div class="row my-3" > 
+        <div class="col-sm-4">
+            <img src="./ocp_test_reports/cap8-q1.jpg" alt="" width="320" height="600">
+        </div>
+        <div class="col-sm-6 offset-2">
+    		You have an InputStream, but not all java.io.streams support the mark operation. If mark supperted the result would be XYZY. <b>If the stream does not support it a runtime exception is likely thrown.</b>
+        </div>
     </div>
 </div>
-
+<a class="btn btn-secondary" data-toggle="collapse" href="#collapse2" role="button" aria-expanded="false" aria-controls="collapseExample">java.io.File</a>
+<div class="collapse" id="collapse2">
+      <div class="row my-3">
+        <div class="col-sm-4">
+              <img src="./ocp_test_reports/cap8-q2.jpg" alt="" width="320" height="600">
+        </div>
+        
+        <div class="col-sm-6 offset-2">
+        	<p>renameTo ok, getLength, no, listFile no, createdirecorty no</p>
+        	<p>Attenzione: listFiles c'è ma non listFile</p>
+        </div>
+    </div>
+</div>
 </div>
 </body>
