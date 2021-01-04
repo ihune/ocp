@@ -23,6 +23,7 @@ The last two allow the ResultSet to be scrollable. TYPE_SCROLL_INSENSITIVE means
 
 <h2>SqlException</h2>
 java.sql.SQLException: using the method executeQuery for update is not possible.
+
 <h2 class="my-3">Test</h2>
 <a class="btn btn-primary" data-toggle="collapse" href="#collapse0" role="button" aria-expanded="false" aria-controls="collapseExample">ResultSet</a>
 <div class="collapse" id="collapse0">

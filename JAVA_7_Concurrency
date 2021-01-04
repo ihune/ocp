@@ -16,6 +16,7 @@
 <h1 class="my-3">Concurrency</h1>
 <div><bold>What is a thread?</bold> is the smallest UoE that can be scheduled by an OS</div>
 <div><bold>What is a process?</bold> a group of associated thread that can execute in the same, shared environment</div>
+<div><bold>execute</bold> returns void</div>
 <div class="my-3">
   <a class="btn btn-primary" data-toggle="collapse" href="#ManagingConcurrent" role="button" aria-expanded="false" aria-controls="collapseExample">Managing Concurrent Processes</a>
  </div>
