@@ -18,6 +18,7 @@
 <h2>Test</h2>
 <a class="btn btn-primary" data-toggle="collapse" href="#collapse1" role="button" aria-expanded="false" aria-controls="collapseExample">Generic</a>
 <a class="btn btn-primary" data-toggle="collapse" href="#collapse2" role="button" aria-expanded="false" aria-controls="collapseExample">Choose a Collection</a>
+<a class="btn btn-primary" data-toggle="collapse" href="#collapse3" role="button" aria-expanded="false" aria-controls="collapseExample">Sorting</a>
 
 <div class="collapse" id="collapse1" name="collapse1">
     <div class="row my-3">
@@ -51,5 +52,18 @@
     </div>  
 </div>
 
+<div class="collapse" id="collapse3" name="collapse3">
+<p>&lt;T> void java.util.Collections.sort(List&lt;T> list)</p>
+
+Sorts the specified list into ascending order, according to the natural ordering of its elements. All elements in the list must implement the Comparable interface. <p>Furthermore, all elements in the list must be mutually comparable (that is, e1.compareTo(e2) must not throw a ClassCastException for any elements e1 and e2 in the list). </p>
+<p>
+This sort is guaranteed to be stable: equal elements will not be reordered as a result of the sort. 
+The specified list must be modifiable, but need not be resizable.</p>
+
+</br>
+<p>sort(List&lt;T> list, Comparator&lt;? super T> c)</p>
+Sorts the specified list according to the order induced by the specified comparator.
+
+</div>
 </div>
 </body>

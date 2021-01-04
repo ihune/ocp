@@ -18,7 +18,6 @@
 <a class="btn btn-primary" data-toggle="collapse" href="#collapse0" role="button" aria-expanded="false" aria-controls="collapseExample">Interface</a>
 <a class="btn btn-primary" data-toggle="collapse" href="#collapse1" role="button" aria-expanded="false" aria-controls="collapseExample">Equals and HashCode</a>
 
-
 <div class="collapse" id="collapse0">
     <div class="row my-3">
         <div class="col-sm-4">
