@@ -1,0 +1,25 @@
+		Annotations 
+	----------------------
+
+Metadata is data that provides information about other data. An annotation (AN) has the purpose to assign attributes to classes, methods, variables and other Java types.
+
+1. annotations are like interfaces
+2. annotations enstablish relationships that make it easier to manage data
+3. annotation ascribes custom information on the declaration where it is defined. 
+	Syntax to define an AN: public @interface Example() {}
+	@Example() or @Example()
+	An AN element (ANE) is an attribute that stores values about the particular usage of an annotation.
+	marker annotation (MAN) is an AN that not contain element.
+	For a MAN (and when there are no need to set elements), parathesis are optional.
+
+4. annotations are optional metadata and by themselves do not do anything
+5. when declaring an annotation, any element ANE without a default value is considered required
+6. The default value must be a non-null constant expression
+7. providing an optional element elementName=elementValue in a list where order does not matter and type must match
+8. type must be one of: primitive, String, "Class", enum, another annotation, array of one of these
+9. like interface methods, ANE are implicitly abstract and public. If there is another access modifier, compiler error!!
+10. Constant variable (CV): AN can include constant variables that can be accessed by other classes without creating the annotation. These constatnt variables are implicitly public, static and final. MAN can cointain CV.
+
+
+
+

@@ -1,0 +1,104 @@
+Cap 4, ripasso
+FI: Supplier, C, Bi-C, Predicate, Bi-P, F, Bi-F, UnaryOperator, BinaryOperator
+meths: get, accept, test, apply
+Optional: empty as value, meths: of, ofNullable, get, ifPresent, ifPresentGet(C), orElse, orElseGet(S), orElseThrow(S)
+Stream, sequence of objects, as data flow. Source 6, termination 11 meths, both needed. There are also intermediate meths 8. these are:
+sources: of, empty, parallelStream, stream, generate, iterate
+termiantion: reduce, collect, 3 match, 2 find, forEach, count, min/max(C)
+inter: filter, limit, skip, map, flatMap, distinct, peek, sorted
+Stream, DS, IS, LS
+oeprazioni per passare da uno all'altro
+        S, 		DS, 	IS, 	LS
+S       map		mToD	mToI	mToL
+DS 		mToObj	map 	mDToI	mDToL
+IS 		mToObj 	mIToD	map 	mIToL
+LS 		mToObj 	mLToD	mLToI	map
+
+poi questi metodi di map accettano i seguenti tipi di funzione
+
+        S, 		DS, 	IS, 	LS
+S       F 		ToDF	ToIF	ToLF
+DS 		DF 		DUO		DToIF 	DToLF
+IS 		IF 		ITOD	IUO 	IToLF
+LS 		LF 		LToDF	LToIF	LUO
+
+per l'effettive operazioni di mapping da un tipo all'altro.
+L'uso di optional anche per PS Primitive Stream, avviene allo stesso modo rispetto agli Stream. Infatti nei metodi di terminazione find, min, max (fmm) in cui si ha il ritorno di oggetti Optional, ci sono questi metodi:
+        S<E>,	DS, 	IS, 	LS
+	 	get 	getAsD 	getAsI	getAsL
+orEG 			DSuppl 	ISuppl 	LSuppl 	
+fmm ret type	OD 		OI 		OL
+sum				D 		I 		L
+mean 			OD 		OD 		OD
+
+Sum e mean sono due metodi aggiuntivi per i Primitive stream. A questi si aggiunge il  summaryStatistics che restituisce le statistiche di uno stream premitivo, sotto forma di oggetti del tipo <DIL>SummaryStatistic, con i valori di somma, count, min, max, average.
+
+FI per Primitive 
+per i tipi primitivi esiste un sottoinsieme di FI, dette PFI e sono
+Supp, Cons, Pred, Func, UnaryOperator, BynaryOperator
+oltre al BooleanSupplier, la cui funzione getAsBoolean returns a booelan.
+quindi:
+<DIL> + [ Supp, Cons, Pred, Func, UnaryOperator, BynaryOperator ] = 18 FI
+Inoltre ci sono altre specifiche FI
+ToDF	ToIF	ToLF, ToDBF	ToIBF	ToLBF 	6
+DToIF 	DToLF,
+IToDF 	IToLF
+LToDF 	LToIF	6
++ 3 Obj<DIL>Consumer
+il tutto 15 FI custom.
+
+Collecting methods: 2 groups, basic, adv, toMaps
+basic:
+	Averaging<DIL> 	3
+	Counting		1
+	joining 		2
+	maxBy/minBt		2
+	summing<DIL>	3
+	summarizing<DIL>3	16
+advanced:
+	groupingBy		3
+	partitioningBy	2
+	mapping 		1	+ 6 =20
+
+toMaps
+	toSet,	toList, toCollection 3
+	toMaps 			3
+Il tutto 26 FI
+
+Switch --- Ensure that the expression in any switch statement is not null to prevent a NullPointerException from being thrown.
+
+Locale, get/setDefault, are static methods that can be invoked using instance reference as well.
+
+Inner class creation
+
+new PrintWriter("F:\\test.txt") creates a blank file 'F:\test.txt'.
+
+----------------
+
+Per la classe Path l'unico metodo che genera eccezioni è il toRealPath().
+Il comportamento di default è FOLLOW_LINKS, no_replace_existing and no
+
+Files.copy();
+
+Unlike if-then and if-then-else statements, the switch statement can have a number of possible execution paths. 
+A switch works with the byte, short, char, and int primitive data types. 
+It also works with enumerated types (discussed in Enum Types), 
+the String class, 
+and a few special classes that wrap certain primitive types: Character, Byte, Short, and Integer (discussed in Numbers and Strings).
+
+Aggregation and Composition 
+	Aggregation and composition are both a “whole-part” relationship. In case of a composition, the part cannot exist without the whole whereas in case of an aggregation it can. Aggregation therefore is often called “weak association” while composition is called “strong association”. 
+	[https://www.oracle.com/technetwork/developer-tools/jdev/gettingstartedwithumlclassmodeling-130316.pdf]
+
+Annotations > 
+	Create, apply, and process annotations
+
+Java Platform Module System >
+	Deploy and execute modular applications, including automatic modules
+	Declare, use, and expose modules, including the use of services
+
+services: Class ServiceLoader<S>
+https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/ServiceLoader.html
+
+An application
+	ServiceLoader.load(Mouse.class)

@@ -1,0 +1,13 @@
+Q. 44 of ocp-java-se-8-programmer-ii-exam-1z0-809-practice-tests/learn/quiz/4983564/test
+-----------
+What is true of the following if the music database exists and contains a songs table with one row when run using a JDBC 4.0 driver? (Choose two.)
+
+import java.sql.*;
+public class Music {
+    public static void main(String[] args) throws Exception {
+        String url = "jdbc:derby:music";
+        Connection conn = DriverManager.getConnection(url);
+        Statement stmt = conn.createStatement();
+        stmt.execute("update songs set name = 'The New Song'");
+    }
+}

@@ -1,0 +1,52 @@
+	Parallelism and Ordering
+-------------------------------
+
+Parallelism: 
+The only difference between the serial and parallel is the creation of the initial stream, using "parallelStream()" instead of "stream()". When the terminal operation is initiated, the stream pipeline is executed sequentially or in parallel depending on the orientation of the stream on which it is invoked. 
+
+Except for operations identified as explicitly nondeterministic, such as findAny(), whether a stream executes sequentially or in parallel should not change the result of the computation.
+
+Ordering
+Streams may or may not have a defined encounter order. Whether or not a stream has an encounter order depends on the source and the intermediate operations. Certain stream sources (such as List or arrays) are intrinsically ordered, whereas others (such as HashSet) are not. 
+Some intermediate operations, such as sorted(), may impose an encounter order on an otherwise unordered stream, and others may render an ordered stream unordered, such as BaseStream.unordered(). Further, some terminal operations may ignore encounter order, such as forEach().
+
+--------------------------
+
+The order in which a pipeline processes the elements of a stream depends on whether the stream is executed in serial or in parallel, the source of the stream, and intermediate operations. 
+
+	Integer[] intArray = {1, 2, 3, 4, 5, 6, 7, 8 };
+	List<Integer> listOfIntegers =  new ArrayList<>(Arrays.asList(intArray));		
+		
+	System.out.print("listOfIntegers:\t\t\t\t");
+	listOfIntegers.forEach(e -> System.out.print(e + " "));System.out.println("");
+		
+	System.out.print("\nlistOfIntegers in a ordered parallel stream with forEach:\t\t");
+	listOfIntegers
+	    .parallelStream()
+	    .forEach(e -> System.out.print(e + " "));
+	System.out.println("");
+	
+	System.out.print("listOfIntegers in a ordered parallel stream with forEachOrdered:\t");
+	listOfIntegers
+	    .parallelStream()
+	    .forEachOrdered(e -> System.out.print(e + " "));
+	System.out.println("");
+	
+	Stream<Integer> pstreamOfInts = listOfIntegers.stream().unordered().parallel();
+	System.out.print("\nparallel  listOfIntegers:\t\t");
+	pstreamOfInts.forEach(e -> System.out.print(e + " "));System.out.println("");
+	
+	System.out.print("listOfIntegers in a parallel stream with forEachOrdered:\t\t");
+	listOfIntegers.stream().unordered().parallel()
+	    .forEachOrdered(e -> System.out.print(e + " "));
+	System.out.println("");
+---------------------------------------------------------------------------
+	listOfIntegers:				1 2 3 4 5 6 7 8 
+
+listOfIntegers in a ordered parallel stream with forEach:		6 5 3 4 7 1 2 8 
+listOfIntegers in a ordered parallel stream with forEachOrdered:	1 2 3 4 5 6 7 8 
+
+parallel  listOfIntegers:		6 5 1 4 7 2 8 3 
+listOfIntegers in a parallel stream with forEachOrdered:		1 2 3 4 5 6 7 8 
+
+Solo forEachOrdered riesce a ripristinare l'ordine di creazione.
