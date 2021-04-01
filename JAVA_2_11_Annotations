@@ -1,7 +1,7 @@
 		Annotations 
 	----------------------
 
-Metadata is data that provides information about other data. An annotation (AN) has the purpose to assign attributes to classes, methods, variables and other Java types.
+Metadata is data that provides information about other data. An annotation (AN) has the purpose to assign attributes to classes, methods, variables and other Java types declarations.
 
 1. annotations are like interfaces
 2. annotations enstablish relationships that make it easier to manage data
@@ -19,6 +19,7 @@ Metadata is data that provides information about other data. An annotation (AN) 
 8. type must be one of: primitive, String, "Class", enum, another annotation, array of one of these
 9. like interface methods, ANE are implicitly abstract and public. If there is another access modifier, compiler error!!
 10. Constant variable (CV): AN can include constant variables that can be accessed by other classes without creating the annotation. These constatnt variables are implicitly public, static and final. MAN can cointain CV.
+
 
 
 
